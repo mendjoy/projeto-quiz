@@ -9,20 +9,22 @@
 <body>
     <h1 id="maintitle">Quiz conhecimentos gerais</h1>
 
-    <div id="scoretela">
+    <div id="scoretela" class="">
+        <h2>Parabéns</h2>
         <p id="displayscore"><span>0</span>%</p>
-        <p>Você acertou <span id="correctanswer">0</span> de <span id="questionsAll">10</span>perguntas.</p>
-        <button id="restart">Refazer Quiz</button>
+        <p>Você acertou <span id="correctanswer">0</span> de <span id="questionsAll">10</span> perguntas!</p>
+        <button id="restart">REFAZER QUIZ</button>
     </div>
+
     <div id="quizcontainer">
         <p id="question"> 
             <span id="questionnumber">1-</span> <span id="questiontext"></span> 
         </p>
         <div id="answerbox">
-            <button class="correctanswer">
+            <button>
                 <span class="btnletter">A</span> <span class="questionanswer"></span>
             </button>
-            <button class="wronganswer">
+            <button>
                 <span class="btnletter">B</span> <span class="questionanswer"></span>
             </button>
             <button>
