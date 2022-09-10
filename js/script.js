@@ -1,6 +1,5 @@
 const question = document.querySelector('#question');
-const answers = document.querySelector('#answerbox');
-const numberQuestion = document.querySelector('#questionnumber');
+const answerBox = document.querySelector('#answerbox');
 const quizContainer = document.querySelector('#quizcontainer');
 const scoreContainer = document.querySelector('#scorecontainer');
 const letter = ['A', 'B', 'C', 'D'];
@@ -245,6 +244,37 @@ function createEasyQuestion(i){
         btn.remove();
     }); 
     //proxima pergunta
+    const questionText = question.querySelector('#questiontext');
+    const numberQuestion = question.querySelector('#questionnumber');
+
+    questionText.textContent = easyQuestions[i].question;
+    numberQuestion.textContent = i + 1; 
+
+    //inserir alternativas
+    easyQuestions[i].answers.forEach(function( answer, i){
+        const answerTemplate = document.querySelector('.answerres').cloneNode(true);
+
+        const leterBtn = answerTemplate.querySelector('.btnletter');
+        const answerText = answerTemplate.querySelector('.questionanswer');
+
+        leterBtn.textContent = letter[i];
+        answer.textContent =  answer['answer'];
+
+        answerTemplate.setAttribute('correct-answer', answer['correct']);
+
+
+        //removendo a classe hide
+        answerTemplate.classList.remove('hide');
+
+        //mostrar as alternativas
+        answerBox.appendChild(answerTemplate);
+
+        //inserindo evento no botão
+        answerTemplate.addEventListener('click', function(){
+            console.log(this)
+        }); 
+    }); 
+    actualQuestion++;
 }
 
 startEasyQuiz()
